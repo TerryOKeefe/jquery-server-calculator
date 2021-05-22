@@ -19,10 +19,23 @@ let history = [];
 app.post('/history', (req, res) => {
     // console log to check that we receive inputs
     console.log('Received from inputs', req.body);
-    //push inputs into history array
-    history.push(req.body);
+    
+    // set received inputs as new variables
+    // target req.body firstNum
+    let numberOne = req.body.firstNum;
+    // target req.body secondNum
+    let numberTwo = req.body.secondNum;
+    // target req.body operator
+    let operator = req.body.operator;
+    // need a new variable for calculated result
+    let result = 0;
 
     // calculation of numbers here
+    if (operator == '+') {
+        result = Number(numberOne) + Number(numberTwo);
+        console.log('result', result);
+        
+    }
 
 
 

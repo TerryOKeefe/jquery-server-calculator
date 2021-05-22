@@ -31,8 +31,8 @@ function addInputs() {
     
     // gather input values into a new object
     let newInputs ={
-        num1: $('#numOne').val(),
-        num2: $('#numTwo').val(),
+        firstNum: $('#numOne').val(),
+        secondNum: $('#numTwo').val(),
         operator: operator
     };
     // console log to see that values get collected
