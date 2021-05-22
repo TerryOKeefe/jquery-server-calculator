@@ -21,6 +21,8 @@ function readyNow() {
         // highlight operator button on DOM
         $(this).addClass('highlight');
     });
+    // click listener for clear 'C' button
+    $('#clearBtn').on('click', clearInputs)
     // call the getCalculation function
     getCalculation();
 } // end readyNow
@@ -79,4 +81,12 @@ function getCalculation() {
     });
 } // end getCalculation
 
-
+function clearInputs() {
+    // console log to show click
+    console.log('clicked Clear!');
+    // clear input fields
+    $('#numOne').val('');
+    $('#numTwo').val('');
+    // remove highlight from operators
+    $('.operatorBtn').removeClass('highlight');
+}
