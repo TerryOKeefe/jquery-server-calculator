@@ -32,12 +32,23 @@ app.post('/history', (req, res) => {
 
     // calculation of numbers here
     if (operator === '+') {
+        // addition
         result = Number(numberOne) + Number(numberTwo);
-        // log to make sure result comes back as a number
+        // log to make sure result adds
         console.log('result:', result);
     } else if (operator === '-') {
+        // subtract 
         result = Number(numberOne) - Number(numberTwo);
-        // log to make sure result comes back as a number
+        // log to make sure result subtracts
+        console.log('result:', result);
+    } else if (operator === '*') {
+        // multiply
+        result = Number(numberOne) * Number(numberTwo);
+        // log to make sure result multiplies 
+        console.log('result:', result);
+    } else {
+        result = Number(numberOne) / Number(numberTwo);
+        // log to make sure result divides
         console.log('result:', result);
     }
 
