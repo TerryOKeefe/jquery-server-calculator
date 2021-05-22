@@ -21,6 +21,14 @@ app.post('/history', (req, res) => {
     console.log('Received from inputs', req.body);
     //push inputs into history array
     history.push(req.body);
+
+    // calculation of numbers here
+
+
+
+
+
+
     // send an OK status in terminal
     res.sendStatus(200);
 });
