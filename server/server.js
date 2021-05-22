@@ -75,22 +75,6 @@ app.get('/history', (req, res) => {
     res.send(calcHistory);
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // start listening for connections
 app.listen(PORT, () => {
     // console log to show server is listening

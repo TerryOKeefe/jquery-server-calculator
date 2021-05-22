@@ -15,7 +15,7 @@ function readyNow() {
     // need a way to select operator
     $('.operatorBtn').on('click', function() {
         // set operator to the html equivalent 
-        operator = $(this).html();
+        operator = $(this).text();
         // console log to show the operator selected
         console.log(operator);
         // highlight operator button on DOM
@@ -60,7 +60,7 @@ function getCalculation() {
         method: 'GET',
         url: '/history'
     }).then(response => {
-        console.log('what is Response?', response);
+        console.log('Response from server:', response);
         // empty DOM
         $('#history').empty();
     

@@ -1,3 +1,22 @@
 .highlight {
     background-color: blue;
 }
+
+h1 {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+.value {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.displayHistory {
+    margin-left: 25px;
+}
+
+.inputFields {
+    margin-left: 10px;
+}
