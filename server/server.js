@@ -13,7 +13,7 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended : true}));
 
 // empty array to take in new inputs
-let history = [];
+let calcHistory = [];
 
 // post to add new data
 app.post('/history', (req, res) => {
@@ -51,15 +51,29 @@ app.post('/history', (req, res) => {
         // log to make sure result divides
         console.log('result:', result);
     }
-
-
-
-
-
-
+    // new object with information that can be used to append to DOM
+    let calculatedObj = {
+        firstNumber: numberOne,
+        secondNumber: numberTwo,
+        operator: operator,
+        result: result
+    }
+    
+    // log to check object
+    console.log('Calculated Object:', calculatedObj);
+    // push result into empty array
+    calcHistory.push(calculatedObj);
+    console.log('calcHistory:', calcHistory);
     // send an OK status in terminal
     res.sendStatus(200);
 });
+
+// GET response 
+app.get('/history', (req, res) => {
+    console.log('got to /history');
+    // respond back with
+    res.send(calcHistory);
+})
 
 
 

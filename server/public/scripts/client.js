@@ -20,9 +20,10 @@ function readyNow() {
         console.log(operator);
         // highlight operator button on DOM
         $(this).addClass('highlight');
-    })
-    
-}
+    });
+    // call the getCalculation function
+    getCalculation();
+} // end readyNow
 
 // function to take in inputs and post
 function addInputs() {
@@ -46,7 +47,36 @@ function addInputs() {
     }).then(response => {
         // console log newInputs being sent to server.js
         console.log(response);
+        // call the getCalculation
+        getCalculation();
     });
-}
+} // end addInputs
+
+// function to getCalculations from server.js
+function getCalculation() {
+    $.ajax({
+        method: 'GET',
+        url: '/history'
+    }).then(response => {
+        console.log('what is Response?', response);
+        // empty DOM
+        $('#history').empty();
+    
+        // loop through and append to DOM
+        for(let calc of response) {
+            // empty valueOut
+            $('#valueOut').empty();
+            // append value to the DOM
+            $('#valueOut').append(`${calc.result}`);
+            // append values from response to the DOM history
+            $('#history').append(`
+            <li>
+                ${calc.firstNumber} ${calc.operator} ${calc.secondNumber} 
+                = ${calc.result}
+            </li>
+             `);
+        }
+    });
+} // end getCalculation
 
 
