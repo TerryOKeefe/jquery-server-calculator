@@ -31,10 +31,14 @@ app.post('/history', (req, res) => {
     let result = 0;
 
     // calculation of numbers here
-    if (operator == '+') {
+    if (operator === '+') {
         result = Number(numberOne) + Number(numberTwo);
-        console.log('result', result);
-        
+        // log to make sure result comes back as a number
+        console.log('result:', result);
+    } else if (operator === '-') {
+        result = Number(numberOne) - Number(numberTwo);
+        // log to make sure result comes back as a number
+        console.log('result:', result);
     }
 
 
