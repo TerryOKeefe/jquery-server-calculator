@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 let calcHistory = [];
 
 // post to add new data
-app.post('/history', (req, res) => {
+app.post('/calculator', (req, res) => {
     // console log to check that we receive inputs
     console.log('Received from inputs', req.body);
     
@@ -63,20 +63,21 @@ app.post('/history', (req, res) => {
     console.log('Calculated Object:', calculatedObj);
     // push result into empty array
     calcHistory.push(calculatedObj);
+    // console log to show items pushed into calcHistory
     console.log('calcHistory:', calcHistory);
     // send an OK status in terminal
     res.sendStatus(200);
 });
 
 // GET response 
-app.get('/history', (req, res) => {
-    console.log('got to /history');
+app.get('/calculator', (req, res) => {
+    console.log('got to /calculator');
     // respond back with
     res.send(calcHistory);
-})
+});
 
 // start listening for connections
 app.listen(PORT, () => {
     // console log to show server is listening
     console.log('RUNNING ON PORT:', PORT);
-})
+});

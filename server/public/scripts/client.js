@@ -12,6 +12,7 @@ function readyNow() {
 
     // -- Click listeners --
     $('#submit').on('click', addInputs);
+    
     // need a way to select operator
     $('.operatorBtn').on('click', function() {
         // set operator to the html equivalent 
@@ -21,6 +22,7 @@ function readyNow() {
         // highlight operator button on DOM
         $(this).addClass('highlight');
     });
+    
     // click listener for clear 'C' button
     $('#clearBtn').on('click', clearInputs)
     // call the getCalculation function
@@ -44,7 +46,7 @@ function addInputs() {
     // make a post request with newInputs to send to server.js
     $.ajax({
         method: 'POST',
-        url: '/history',
+        url: '/calculator',
         data: newInputs // becomes req.body on server
     }).then(response => {
         // console log newInputs being sent to server.js
@@ -58,7 +60,7 @@ function addInputs() {
 function getCalculation() {
     $.ajax({
         method: 'GET',
-        url: '/history'
+        url: '/calculator'
     }).then(response => {
         console.log('Response from server:', response);
         // empty DOM
@@ -81,6 +83,7 @@ function getCalculation() {
     });
 } // end getCalculation
 
+// function to clear inputs
 function clearInputs() {
     // console log to show click
     console.log('clicked Clear!');
@@ -89,4 +92,4 @@ function clearInputs() {
     $('#numTwo').val('');
     // remove highlight from operators
     $('.operatorBtn').removeClass('highlight');
-}
+} // end clearInputs
