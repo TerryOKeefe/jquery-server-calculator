@@ -46,11 +46,15 @@ app.post('/calculator', (req, res) => {
         result = Number(numberOne) * Number(numberTwo);
         // log to make sure result multiplies 
         console.log('result:', result);
-    } else {
+    } else if (operator === '/') {
         result = Number(numberOne) / Number(numberTwo);
         // log to make sure result divides
         console.log('result:', result);
+    } else {
+        // send back an error
+        result = ('No operator selected!');
     }
+
     // new object with information that can be used to append to DOM
     let calculatedObj = {
         firstNumber: numberOne,
